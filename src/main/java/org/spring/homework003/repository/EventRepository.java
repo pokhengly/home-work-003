@@ -3,7 +3,6 @@ package org.spring.homework003.repository;
 import org.apache.ibatis.annotations.*;
 import org.spring.homework003.model.Events;
 import org.spring.homework003.model.dto.request.EventsRequest;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -45,6 +44,21 @@ public interface EventRepository {
     @ResultMap("eventMapper")
     Events getEventById(Integer id);
 
-
+    @Delete("""
+            DELETE FROM event_attendee WHERE event_id = #{id};
+            DELETE FROM events WHERE event_id = #{id}
+            """)
     void deleteEvent(Integer id);
+
+    @Select("""
+            UPDATE events
+            SET event_name = #{eventsRequest.eventName},
+                event_date = #{eventsRequest.eventDate},
+                venue_id = #{eventsRequest.venueId}
+            WHERE event_id = #{id}
+            RETURNING *
+            """)
+    @ResultMap("eventMapper")
+    Events updateEvent(Integer id, EventsRequest eventsRequest);
+
 }

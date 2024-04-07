@@ -42,30 +42,4 @@ public class VenueServiceImpl implements VenueService {
     public Venues updateVenue(Integer id, VenuesRequest venuesRequest) {
         return venueRepository.updateVenue(id, venuesRequest);
     }
-
-
-//    @Override
-//    public List<VenuesResponse> getAllVenues() {
-//        return List.of((VenuesResponse) venueRepository.getAllVenues());
-//    }
-//
-//    @Override
-//    public VenuesResponse addVenue(VenuesRequest venuesRequest) {
-//        return (VenuesResponse) venueRepository.addVenue(venuesRequest);
-//    }
-//
-//    @Override
-//    public VenuesResponse getVenueById(Integer id) {
-//        return (VenuesResponse) venueRepository.getVenueById(id);
-//    }
-//
-//    @Override
-//    public VenuesResponse deleteVenue(Integer id) {
-//        return (VenuesResponse) venueRepository.deleteVenue(id);
-//    }
-//
-//    @Override
-//    public VenuesResponse updateVenue(Integer id, VenuesRequest venuesRequest) {
-//        return (VenuesResponse) venueRepository.updateVenue(id, venuesRequest);
-//    }
 }

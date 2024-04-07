@@ -18,6 +18,7 @@ public interface VenueRepository {
             @Result(property = "location", column = "location")
     })
     List<Venues> getAllVenues(@Param("offSet") Integer offSet, @Param("limit") Integer limit);
+
     @Select("INSERT INTO venues (venue_name, location) " +
             "VALUES (#{venueRequest.venueName}, " +
             "#{venueRequest.location}) " +
@@ -40,35 +41,4 @@ public interface VenueRepository {
     @ResultMap("venueMapper")
     Venues updateVenue(Integer id, @Param("venuesRequest") VenuesRequest venuesRequest);
 
-
-//    @Select("SELECT * FROM venues")
-//    @Results(id = "venueMapper", value = {
-//            @Result(property = "venueId", column = "venue_id"),
-//            @Result(property = "venueName", column = "venue_name"),
-//            @Result(property = "location", column = "location")
-//    })
-//    List<Venues> getAllVenues();
-//
-//    @Insert("INSERT INTO venues (venue_name, location) VALUES (" +
-//            "#{venuesRequest.venueName}, " +
-//            "#{venuesRequest.location}) " +
-//            "RETURNING *")
-//    @ResultMap("venueMapper")
-//    Object addVenue(VenuesRequest venuesRequest);
-//
-//    @Select("SELECT * FROM venues WHERE venue_id = #{id}")
-//    @ResultMap("venueMapper")
-//    Object getVenueById(Integer id);
-//
-//    @Select("DELETE FROM venues WHERE venue_id = #{id}")
-//    @ResultMap("venueMapper")
-//    Object deleteVenue(Integer id);
-//
-//    @Select("UPDATE venues SET venue_name = " +
-//            "#{venuesRequest.venueName}, location = " +
-//            "#{venuesRequest.location} " +
-//            "WHERE venue_id = #{id} " +
-//            "RETURNING *")
-//    @ResultMap("venueMapper")
-//    Object updateVenue(Integer id, VenuesRequest venuesRequest);
 }

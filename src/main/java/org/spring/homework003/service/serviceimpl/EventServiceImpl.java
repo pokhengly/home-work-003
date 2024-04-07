@@ -48,7 +48,12 @@ public class EventServiceImpl implements EventService {
     @Override
     public void deleteEvent(Integer id) {
         eventRepository.deleteEvent(id);
+
     }
 
+    @Override
+    public Events updateEvent(Integer id, EventsRequest eventsRequest) {
+        return eventRepository.updateEvent(id, eventsRequest);
+    }
 
 }

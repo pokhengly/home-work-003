@@ -70,6 +70,20 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<APIResponse<Events>> updateEvent(@PathVariable Integer id, @RequestBody EventsRequest eventsRequest) {
+        Events event = eventService.updateEvent(id, eventsRequest);
+        APIResponse<Events> response = new APIResponse<>(
+                "The event has been successfully updated.",
+                event,
+                HttpStatus.OK,
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+
+
 
 
 
