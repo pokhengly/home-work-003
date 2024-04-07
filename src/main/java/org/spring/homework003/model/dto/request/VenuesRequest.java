@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Venues {
-    private String venue_name;
-    private String email;
+public class VenuesRequest {
+
+    private String venueName;
+    private String location;
 }

@@ -4,7 +4,7 @@ CREATE TABLE venues
 (
     venue_id   SERIAL PRIMARY KEY,
     venue_name varchar(70) NOT NULL,
-    location   point       NOT NULL
+    location   varchar(70) NOT NULL
 );
 
 CREATE TABLE events
@@ -26,10 +26,10 @@ CREATE TABLE attendees
 
 CREATE TABLE event_attendee
 (
+    event_attendee_id SERIAL PRIMARY KEY ,
     attendee_id INT NOT NULL ,
     event_id INT NOT NULL ,
 
     FOREIGN KEY (attendee_id) REFERENCES attendees (attendee_id),
-    FOREIGN KEY (event_id) REFERENCES events (event_id),
-    PRIMARY KEY (attendee_id, event_id)
+    FOREIGN KEY (event_id) REFERENCES events (event_id)
 );

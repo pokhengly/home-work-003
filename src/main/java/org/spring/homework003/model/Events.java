@@ -1,4 +1,4 @@
-package org.spring.homework003.model.dto.request;
+package org.spring.homework003.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,10 +10,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EventsRequest {
+public class Events {
 
+    private Integer eventId;
     private String eventName;
     private Date eventDate;
-    private Integer venueId;
-    private List<Integer> attendeesId;
+    private Venues venue;
+    private List<Attendees> attendees;
 }

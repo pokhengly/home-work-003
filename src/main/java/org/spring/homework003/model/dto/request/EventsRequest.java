@@ -5,14 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Events {
+public class EventsRequest {
 
-    private Integer event_id;
-    private String event_name;
-    private Date event_date;
-    private Integer venue_id;
+    private String eventName;
+    private Date eventDate;
+    private Integer venueId;
+    private List<Integer> attendeesId;
 }
